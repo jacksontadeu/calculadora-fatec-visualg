@@ -48,6 +48,21 @@ inicio
 retorne a / b
 fimfuncao
 
+funcao Fatoracao (numero: inteiro) : inteiro  //Declaração da função Fatoração
+var
+fatorial :inteiro //Variavel da Função
+inicio
+fatorial<-1 //Fatorial recebe valor 1 neutro em multiplicação
+  se numero=0 entao //Condição para caso o numero solicitaddo for 0 retorna o valor de 1
+  fatorial<-1
+  senao entao  //Caso não seja 0 Continuar com o calculo
+     para incremento de numero até 1 passo -1 faca //Repetição para decrescer o valor do fatorial
+          fatorial<-incremento * fatorial  //Fatorial recebe o produto de seu valor anterior vezes o incremento
+     fimpara
+  fimse
+retorne fatorial //Retorno do valor da Função
+fimfunção
+
 
 Var
 // Seção de Declarações das variáveis 
@@ -110,6 +125,10 @@ caso 1
 
 caso 2
 caso 3
+     limpatela
+     escreva("Digite um número: ")
+     leia(fat)
+     fatorial(fat)
 caso 4
      limpatela
      menujuros
