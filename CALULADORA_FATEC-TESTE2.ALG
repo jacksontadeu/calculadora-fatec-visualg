@@ -52,23 +52,24 @@ senao
 fimse
 fimfuncao
 
-funcao fatorial (numero: inteiro) : inteiro
+funcao fatoracao (numero: inteiro) : inteiro
 inicio
 fatorial<-1
   se numero=0 entao
   fatorial <- 1
   senao
      para incremento de numero até 1 passo -1 faca
-          fatorial<- (incremento * fatorial)
+          fatorial<- incremento * fatorial
      fimpara
   fimse
 retorne fatorial
+
 fimfunção
 
 
 Var
 // Seção de Declarações das variáveis 
- opcao, fat,fatorial,incremento : inteiro
+ opcao, fat,fatorial,incremento, numero : inteiro
  operacao : caracter
  x,y, resultado : real
 
@@ -129,7 +130,9 @@ caso 3
      limpatela
      escreva("Digite um número: ")
      leia(fat)
-     escreval(fatorial(fat))
+     escreval(Fatoracao(fat))
+     escreval("Digite F9 para continuar")
+     pausa
 caso 4
      limpatela
      menujuros
