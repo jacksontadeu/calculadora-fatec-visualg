@@ -48,27 +48,13 @@ inicio
 se (b=0) entao
    escreval ("Impossível dividir por zero")
 senao
-     retrun a / b
+     retorne a / b
 fimse
 fimfuncao
 
-funcao fatorial (numero: inteiro) : inteiro
-inicio
-fatorial<-1
-  se numero=0 entao
-  fatorial <- 1
-  senao
-     para incremento de numero até 1 passo -1 faca
-          fatorial<- (incremento * fatorial)
-     fimpara
-  fimse
-retorne fatorial
-fimfunção
-
-
 Var
 // Seção de Declarações das variáveis 
- opcao, fat,fatorial,incremento : inteiro
+ opcao, fat,fatorial,incremento, numero : inteiro
  operacao : caracter
  x,y, resultado : real
 
@@ -96,28 +82,33 @@ caso 1
              escreva("Digite outro número: ")
              leia(y)
              resultado <- somar(resultado,y)
+             limpatela
              escreval(resultado)
 
         caso "-"
              escreva("Digite outro número: ")
              leia(y)
              resultado <- subtrair(resultado,y)
+             limpatela
              escreval(resultado)
 
         caso "*"
              escreva("Digite outro número: ")
              leia(y)
              resultado <- multiplicar(resultado,y)
+             limpatela
              escreval(resultado)
 
         caso "/"
              escreva("Digite outro número: ")
              leia(y)
              resultado <- dividir(resultado,y)
+             limpatela
              escreval(resultado)
 
         caso "="
-             escreval(resultado)
+             limpatela
+             escreval("Resultado: ",resultado)
              escreval("Digite F9 para continuar")
              pausa
              interrompa
@@ -126,10 +117,6 @@ caso 1
      fimenquanto
 caso 2
 caso 3
-     limpatela
-     escreva("Digite um número: ")
-     leia(fat)
-     escreval(fatorial(fat))
 caso 4
      limpatela
      menujuros
@@ -137,7 +124,7 @@ caso 5
      limpatela
 caso 6
 caso 0
-     escreva ("Saindo do sistema")
+     escreva ("Obrigado por utilizar o sistema, saindo do sistema!!!")
      timer (1000)
      interrompa
 outrocaso
