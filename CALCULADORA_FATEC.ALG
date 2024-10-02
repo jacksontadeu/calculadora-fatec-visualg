@@ -47,6 +47,9 @@ funcao dividir(a,b: real): real
 inicio
 se (b=0) entao
    escreval ("Impossível dividir por zero")
+   escreval("Tente novamente!!!")
+   escreval("Digite F9 para continuar")
+   pausa
 senao
      retorne a / b
 fimse
@@ -74,7 +77,6 @@ caso 1
      leia(x)
      resultado <- x
      enquanto operacao <> "=" faca
-
         escreva ("Escolha a operação +,-,*,/ ou = para terminar: ")
         leia(operacao)
         escolha operacao
@@ -112,7 +114,6 @@ caso 1
              escreval("Digite F9 para continuar")
              pausa
              interrompa
-
         fimescolha
      fimenquanto
 caso 2
@@ -134,5 +135,4 @@ outrocaso
 fimescolha
 limpatela
 ate opcao = 0
-
 fimalgoritmo
