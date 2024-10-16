@@ -189,15 +189,12 @@ caso 4
                escreva ("Digite o tempo (t) em meses: ")
                leia(t)
                LimpaTela
-
-               //i := i / 100
                j := CalcularJurosSimples(c, i, t)
                escreva(c, " * ", i * 100, "% * ", t, " = R$", j:0:2)
                escreval
                escreva("O valor dos juros simples é: R$", j:0:2)
                escreval
                escreva("Gostaria de realizar outra simulação? Sim (s) ou Não (n): ")
-               
                leia(repetir)
                LimpaTela
                fimenquanto
