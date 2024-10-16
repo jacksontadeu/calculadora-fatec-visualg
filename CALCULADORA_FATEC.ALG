@@ -1,4 +1,6 @@
 Algoritmo "Caluladora_Fatec"
+// Disciplina   : [Linguagem e Lógica de Programação] 
+// Professor   : Antonio Carlos Nicolodi 
 procedimento menuprincipal
 inicio
 escreval ("Menu Calculadora")
@@ -55,6 +57,22 @@ senao
 fimse
 fimfuncao
 
+funcao Fatoracao (numero: inteiro) : inteiro
+var
+fatorial :inteiro
+inicio
+fatorial<-1
+se numero=0 entao
+  fatorial<-1
+  senao entao
+     para incremento de numero até 1 passo -1 faca
+          fatorial<-incremento * fatorial
+     fimpara
+fimse
+retorne fatorial
+fimfunção
+
+
 Var
 // Seção de Declarações das variáveis 
  opcao, fat,fatorial,incremento, numero : inteiro
@@ -72,7 +90,6 @@ escolha opcao
 caso 1
      limpatela
      operacao <- ""
-     escreval ("Operações Básicas")
      escreva("Digite um número: ")
      leia(x)
      resultado <- x
@@ -118,6 +135,12 @@ caso 1
      fimenquanto
 caso 2
 caso 3
+     limpatela
+     escreva ("Digite um número: ")
+     leia(numero)
+     escreval("O Fatorial de",numero," é:",Fatoracao(numero))
+     escreval("Digite F9 para continuar")
+     pausa
 caso 4
      limpatela
      menujuros
