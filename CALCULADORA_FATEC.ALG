@@ -57,6 +57,21 @@ senao
 fimse
 fimfuncao
 
+funcao Concatenacao():caracter
+var
+opcao, palavra, string: caracter
+inicio
+enquanto opcao <> "n" faca
+    escreva("Digite uma palavra: ")
+    leia(palavra)
+    string  <- string + palavra
+    escreva ("Deseja continuar (s/n): ")
+    leia(opcao)
+fimenquanto
+    retorne string
+
+fimfuncao
+
 funcao Fatoracao (numero: inteiro) : inteiro
 var
 fatorial :inteiro
@@ -134,6 +149,11 @@ caso 1
         fimescolha
      fimenquanto
 caso 2
+     limpatela
+      escreva(Concatenacao())
+      escreval()
+      escreval("Digite F9 para continuar")
+      pausa
 caso 3
      limpatela
      escreva ("Digite um número: ")
