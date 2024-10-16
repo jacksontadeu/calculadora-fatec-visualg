@@ -95,6 +95,11 @@ retorne juros
 
 fimfuncao
 
+funcao juros_compostos (c,i,t: real ) : real
+inicio
+retorne  c *( 1 + (i /100)) ^ t
+fimfuncao
+
 
 
 
@@ -102,7 +107,7 @@ Var
 // Seção de Declarações das variáveis 
  opcao, fat,fatorial,incremento, numero, termino : inteiro
  operacao,repetir,opcaojuros: caracter
- x,y, resultado,juros, c, i, t, j : real
+ x,y, resultado,juros, c, i, t, j,m : real
 
 
 
@@ -198,7 +203,20 @@ caso 4
                leia(repetir)
                LimpaTela
                fimenquanto
-               
+         caso "2"
+              enquanto repetir <> "n" faca
+              limpatela
+              escreva("Digite o capital aplicado:R$ ")
+              leia(c)
+              escreva("Digite a taxa de juros: ")
+              leia(i)
+              escreva("Digite o tempo: ")
+              leia(t)
+              m <- juros_compostos(c,i,t)
+              escreval("O montante é: ",m)
+              escreva("Gostaria de realizar outra simulação? Sim (s) Nao (n): ")
+              leia (repetir)
+              fimenquanto
          outrocaso
                escreval ("Digite a opção correta, tente novamente!!!")
                escreval("Digite F9 para continuar")
