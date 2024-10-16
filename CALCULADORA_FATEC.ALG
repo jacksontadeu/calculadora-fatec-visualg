@@ -87,12 +87,24 @@ fimse
 retorne fatorial
 fimfunção
 
+funcao CalcularJurosSimples(c, i, t: real): real
+
+Inicio
+juros := c * t * i/100
+retorne juros
+
+fimfuncao
+
+
+
 
 Var
 // Seção de Declarações das variáveis 
- opcao, fat,fatorial,incremento, numero : inteiro
- operacao : caracter
- x,y, resultado : real
+ opcao, fat,fatorial,incremento, numero, termino : inteiro
+ operacao,repetir,opcaojuros: caracter
+ x,y, resultado,juros, c, i, t, j : real
+
+
 
 Inicio
 // Seção de Comandos, procedimento, funções, operadores, etc... 
@@ -164,13 +176,44 @@ caso 3
 caso 4
      limpatela
      menujuros
+         escreva ("Digite a opção desejada: ")
+         leia (opcaojuros)
+         escolha opcaojuros
+         caso "1"
+               enquanto repetir <> "n" faca
+               LimpaTela
+               escreva ("Digite o valor do seu capital inical (c): R$")
+               leia (c)
+               escreva ("Digite o valor do juros (i) em porcentagem:")
+               leia(i)
+               escreva ("Digite o tempo (t) em meses: ")
+               leia(t)
+               LimpaTela
+
+               //i := i / 100
+               j := CalcularJurosSimples(c, i, t)
+               escreva(c, " * ", i * 100, "% * ", t, " = R$", j:0:2)
+               escreval
+               escreva("O valor dos juros simples é: R$", j:0:2)
+               escreval
+               escreva("Gostaria de realizar outra simulação? Sim (s) ou Não (n): ")
+               
+               leia(repetir)
+               LimpaTela
+               fimenquanto
+               
+         outrocaso
+               escreval ("Digite a opção correta, tente novamente!!!")
+               escreval("Digite F9 para continuar")
+               pausa
+         fimescolha
 caso 5
      limpatela
 caso 6
 caso 0
      escreva ("Obrigado por utilizar o sistema, saindo do sistema!!!")
      timer (1000)
-     interrompa
+
 outrocaso
          escreva("Opção invalida, tente novamente!!!")
          timer(1000)
