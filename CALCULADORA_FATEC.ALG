@@ -1,191 +1,207 @@
 Algoritmo "Caluladora_Fatec"
-// Disciplina   : [Linguagem e Lógica de Programação] 
-// Professor   : Antonio Carlos Nicolodi 
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi
 procedimento menuprincipal
 inicio
-escreval ("Menu Calculadora")
-escreval("1 - Operações Básicas")
-escreval("2 - Concatenar Strings")
-escreval("3 - Fatorial")
-escreval("4 - Juros")
-escreval("5 - Conversão de Base Numérica")
-escreval("6 - Função do Segundo Grau")
-escreval("0 - Sair do sistema")
+   escreval ("Menu Calculadora")
+   escreval("1 - Operações Básicas")
+   escreval("2 - Concatenar Strings")
+   escreval("3 - Fatorial")
+   escreval("4 - Juros")
+   escreval("5 - Conversão de Base Numérica")
+   escreval("6 - Função do Segundo Grau")
+   escreval("0 - Sair do sistema")
 fimprocedimento
 
 procedimento menuoperacoes
 inicio
-escreval ("Operações Básicas")
-escreval("1 - Somar")
-escreval("2 - Subtrair")
-escreval("3 - Multiplicar")
-escreval("4 - Dividir")
-escreval("0 - Voltar ao menu principal")
+   escreval ("Operações Básicas")
+   escreval("1 - Somar")
+   escreval("2 - Subtrair")
+   escreval("3 - Multiplicar")
+   escreval("4 - Dividir")
+   escreval("0 - Voltar ao menu principal")
 fimprocedimento
 
 procedimento menujuros
 inicio
-escreval ("Juros")
-escreval("1 - Juros Simples")
-escreval("2 - Juros Compostos")
+   escreval ("Juros")
+   escreval("1 - Juros Simples")
+   escreval("2 - Juros Compostos")
 fimprocedimento
 
 funcao somar(a,b: real): real
 inicio
-retorne a + b
+   retorne a + b
 fimfuncao
 
 funcao subtrair(a,b: real): real
 inicio
-retorne a - b
+   retorne a - b
 fimfuncao
 
 funcao multiplicar(a,b: real): real
 inicio
-retorne a * b
+   retorne a * b
 fimfuncao
 
 funcao dividir(a,b: real): real
 inicio
-se (b=0) entao
-   escreval ("Impossível dividir por zero")
-   escreval("Tente novamente!!!")
-   escreval("Digite F9 para continuar")
-   pausa
-senao
-     retorne a / b
-fimse
+   se (b=0) entao
+      escreval ("Impossível dividir por zero")
+      escreval("Tente novamente!!!")
+      escreval("Digite F9 para continuar")
+      pausa
+   senao
+      retorne a / b
+   fimse
 fimfuncao
 
 funcao Concatenacao():caracter
 var
-opcao, palavra, string: caracter
+   opcao, palavra, string: caracter
 inicio
-enquanto opcao <> "n" faca
-    escreva("Digite uma palavra: ")
-    leia(palavra)
-    string  <- string + palavra
-    escreva ("Deseja continuar (s/n): ")
-    leia(opcao)
-fimenquanto
-    retorne string
+   enquanto opcao <> "n" faca
+      escreva("Digite uma palavra: ")
+      leia(palavra)
+      string  <- string + palavra
+      escreva ("Deseja continuar (s/n): ")
+      leia(opcao)
+   fimenquanto
+   retorne string
 
 fimfuncao
 
 funcao Fatoracao (numero: inteiro) : inteiro
 var
-fatorial :inteiro
+   fatorial :inteiro
 inicio
-fatorial<-1
-se numero=0 entao
-  fatorial<-1
-  senao entao
-     para incremento de numero até 1 passo -1 faca
-          fatorial<-incremento * fatorial
-     fimpara
-fimse
-retorne fatorial
+   fatorial<-1
+   se numero=0 entao
+      fatorial<-1
+   senao entao
+      para incremento de numero até 1 passo -1 faca
+         fatorial<-incremento * fatorial
+      fimpara
+   fimse
+   retorne fatorial
 fimfunção
 
 funcao CalcularJurosSimples(c, i, t: real): real
 
 Inicio
-juros := c * t * i/100
-retorne juros
+   juros := c * t * i/100
+   retorne juros
 
 fimfuncao
 
 funcao juros_compostos (c,i,t: real ) : real
 inicio
-retorne  c *( 1 + (i /100)) ^ t
+   retorne  c *( 1 + (i /100)) ^ t
+fimfuncao
+
+funcao segundo_grau(a,b,c : real): real
+
+inicio
+
+   delta<- (b*b) - (4*a*c)
+   Se delta < 0 Então
+      Escreva("A equação não possui raízes reais.")
+   fimse
+   Se delta = 0 Então
+      x1 := -b / (2*a)
+      Escreva("A equação possui uma raiz real: ", x1)
+   Senão
+      x1 := (-b + (RaizQ(delta))) / (2*a)
+      x2 := (-b - (RaizQ(delta))) / (2*a)
+      escreva ("As raízes da equação são: ", x1, " e ", x2)
+   FimSe
 fimfuncao
 
 
-
-
 Var
-// Seção de Declarações das variáveis 
- opcao, fat,fatorial,incremento, numero, termino : inteiro
- operacao,repetir,opcaojuros: caracter
- x,y, resultado,juros, c, i, t, j,m : real
+   // Seção de Declarações das variáveis
+   opcao, fat,fatorial,incremento, numero, termino : inteiro
+   operacao,repetir,opcaojuros: caracter
+   x,y, resultado,juros, c, i, t, j,m,a,b,x1,x2,delta : real
 
 
 
 Inicio
-// Seção de Comandos, procedimento, funções, operadores, etc... 
+   // Seção de Comandos, procedimento, funções, operadores, etc...
 
-repita
-menuprincipal
-escreva("Entre com a opção desejada: ")
-leia (opcao)
-escolha opcao
-caso 1
-     limpatela
-     operacao <- ""
-     escreva("Digite um número: ")
-     leia(x)
-     resultado <- x
-     enquanto operacao <> "=" faca
-        escreva ("Escolha a operação +,-,*,/ ou = para terminar: ")
-        leia(operacao)
-        escolha operacao
-        caso "+"
-             escreva("Digite outro número: ")
-             leia(y)
-             resultado <- somar(resultado,y)
-             limpatela
-             escreval(resultado)
+   repita
+      menuprincipal
+      escreva("Entre com a opção desejada: ")
+      leia (opcao)
+      escolha opcao
+      caso 1
+         limpatela
+         operacao <- ""
+         escreva("Digite um número: ")
+         leia(x)
+         resultado <- x
+         enquanto operacao <> "=" faca
+            escreva ("Escolha a operação +,-,*,/ ou = para terminar: ")
+            leia(operacao)
+            escolha operacao
+            caso "+"
+               escreva("Digite outro número: ")
+               leia(y)
+               resultado <- somar(resultado,y)
+               limpatela
+               escreval(resultado)
 
-        caso "-"
-             escreva("Digite outro número: ")
-             leia(y)
-             resultado <- subtrair(resultado,y)
-             limpatela
-             escreval(resultado)
+            caso "-"
+               escreva("Digite outro número: ")
+               leia(y)
+               resultado <- subtrair(resultado,y)
+               limpatela
+               escreval(resultado)
 
-        caso "*"
-             escreva("Digite outro número: ")
-             leia(y)
-             resultado <- multiplicar(resultado,y)
-             limpatela
-             escreval(resultado)
+            caso "*"
+               escreva("Digite outro número: ")
+               leia(y)
+               resultado <- multiplicar(resultado,y)
+               limpatela
+               escreval(resultado)
 
-        caso "/"
-             escreva("Digite outro número: ")
-             leia(y)
-             resultado <- dividir(resultado,y)
-             limpatela
-             escreval(resultado)
+            caso "/"
+               escreva("Digite outro número: ")
+               leia(y)
+               resultado <- dividir(resultado,y)
+               limpatela
+               escreval(resultado)
 
-        caso "="
-             limpatela
-             escreval("Resultado: ",resultado)
-             escreval("Digite F9 para continuar")
-             pausa
-             interrompa
-        fimescolha
-     fimenquanto
-caso 2
-     limpatela
-      escreva(Concatenacao())
-      escreval()
-      escreval("Digite F9 para continuar")
-      pausa
-caso 3
-     limpatela
-     escreva ("Digite um número: ")
-     leia(numero)
-     escreval("O Fatorial de",numero," é:",Fatoracao(numero))
-     escreval("Digite F9 para continuar")
-     pausa
-caso 4
-     limpatela
-     menujuros
+            caso "="
+               limpatela
+               escreval("Resultado: ",resultado)
+               escreval("Digite F9 para continuar")
+               pausa
+               interrompa
+            fimescolha
+         fimenquanto
+      caso 2
+         limpatela
+         escreva(Concatenacao())
+         escreval()
+         escreval("Digite F9 para continuar")
+         pausa
+      caso 3
+         limpatela
+         escreva ("Digite um número: ")
+         leia(numero)
+         escreval("O Fatorial de",numero," é:",Fatoracao(numero))
+         escreval("Digite F9 para continuar")
+         pausa
+      caso 4
+         limpatela
+         menujuros
          escreva ("Digite a opção desejada: ")
          leia (opcaojuros)
          escolha opcaojuros
          caso "1"
-               enquanto repetir <> "n" faca
+            enquanto repetir <> "n" faca
                LimpaTela
                escreva ("Digite o valor do seu capital inical (c): R$")
                leia (c)
@@ -202,38 +218,48 @@ caso 4
                escreva("Gostaria de realizar outra simulação? Sim (s) ou Não (n): ")
                leia(repetir)
                LimpaTela
-               fimenquanto
+            fimenquanto
          caso "2"
-              enquanto repetir <> "n" faca
-              limpatela
-              escreva("Digite o capital aplicado:R$ ")
-              leia(c)
-              escreva("Digite a taxa de juros: ")
-              leia(i)
-              escreva("Digite o tempo: ")
-              leia(t)
-              m <- juros_compostos(c,i,t)
-              escreval("O montante é: ",m)
-              escreva("Gostaria de realizar outra simulação? Sim (s) Nao (n): ")
-              leia (repetir)
-              fimenquanto
+            enquanto repetir <> "n" faca
+               limpatela
+               escreva("Digite o capital aplicado:R$ ")
+               leia(c)
+               escreva("Digite a taxa de juros: ")
+               leia(i)
+               escreva("Digite o tempo: ")
+               leia(t)
+               m <- juros_compostos(c,i,t)
+               escreval("O montante é: ",m)
+               escreva("Gostaria de realizar outra simulação? Sim (s) Nao (n): ")
+               leia (repetir)
+            fimenquanto
          outrocaso
-               escreval ("Digite a opção correta, tente novamente!!!")
-               escreval("Digite F9 para continuar")
-               pausa
+            escreval ("Digite a opção correta, tente novamente!!!")
+            escreval("Digite F9 para continuar")
+            pausa
          fimescolha
-caso 5
-     limpatela
-caso 6
-caso 0
-     escreva ("Obrigado por utilizar o sistema, saindo do sistema!!!")
-     timer (1000)
+      caso 5
+         limpatela
+      caso 6
+         limpatela
+         escreva("Digite o primeiro termo: ")
+         leia(a)
+         escreva("digite o segundo termo: ")
+         leia(b)
+         escreva("Digite o terceiro termo: ")
+         leia(c)
+         escreval(segundo_grau(a,b,c))
+         //escreva("Digite F9 para continuar")
+         pausa
+      caso 0
+         escreva ("Obrigado por utilizar o sistema, saindo do sistema!!!")
+         timer (1000)
 
-outrocaso
+      outrocaso
          escreva("Opção invalida, tente novamente!!!")
          timer(1000)
          timer (0)
-fimescolha
-limpatela
-ate opcao = 0
+      fimescolha
+      limpatela
+   ate opcao = 0
 fimalgoritmo
