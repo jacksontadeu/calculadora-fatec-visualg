@@ -186,20 +186,20 @@ Inicio
             repetir := repeticao()
          ate repetir = "n"
       caso 2
-         repita
-            limpatela
-            escreva(Concatenacao())
-            escreval()
-            repetir := repeticao()
-         ate repetir = "n"
+         //repita
+         //   limpatela
+          //  escreva(Concatenacao())
+          //  escreval()
+         //   repetir := repeticao()
+       //  ate repetir = "n"
       caso 3
-         repita
-            limpatela
-            escreva ("Digite um número: ")
-            leia(numero)
-            escreval("O Fatorial de",numero," é:",Fatoracao(numero))
-            repetir := repeticao()
-         ate repetir = "n"
+         //repita
+         //   limpatela
+         //   escreva ("Digite um número: ")
+        //    leia(numero)
+        //    escreval("O Fatorial de",numero," é:",Fatoracao(numero))
+        //    repetir := repeticao()
+       //  ate repetir = "n"
       caso 4
          limpatela
          menujuros
