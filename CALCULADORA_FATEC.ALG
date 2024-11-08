@@ -90,33 +90,13 @@ inicio
    retorne  c *( 1 + (i /100)) ^ t
 fimfuncao
 
-funcao segundo_grau(): real
+funcao calcular_delta(): real
 
 inicio
-   repita
-      escreva("Digite o valor de a: ")
-      leia(a)
-      se a=0 entao
-         escreval("Não é uma Equação de Segundo Grau, Insira outro valor de a:")
-      fimse
-   ate a<>0
-   escreva("Digite o valor de b: ")
-   leia(b)
-   escreva("Digite o valor de c: ")
-   leia(c)
+
    delta<- (b*b) - (4*a*c)
-   se delta < 0 entao
-      escreva("A equação não possui raízes reais.")
-   senao
-      se delta = 0 entao
-         x1 := -b / (2*a)
-         escreva("A equação possui uma raiz real: ", x1)
-      senao
-         x1 := (-b + RaizQ(delta)) / (2*a)
-         x2 := (-b - RaizQ(delta)) / (2*a)
-         escreva("As raízes da equação são: ", x1, " e ", x2)
-      fimse
-   fimse
+   retorne delta
+
 fimfuncao
 
 funcao repeticao(): caracter
@@ -131,7 +111,7 @@ Var
    // Seção de Declarações das variáveis
    opcao, fat,fatorial,incremento, numero, termino : inteiro
    operacao,repetir,opcaojuros: caracter
-   x,y, resultado,juros, c, i, t, j,m,a,b,x1,x2,delta : real
+   x,y, resultado,juros, c, i, t, j,m,a,b,delta : real
 
 
 
@@ -186,20 +166,20 @@ Inicio
             repetir := repeticao()
          ate repetir = "n"
       caso 2
-         //repita
-         //   limpatela
-          //  escreva(Concatenacao())
-          //  escreval()
-         //   repetir := repeticao()
-       //  ate repetir = "n"
+         repita
+            limpatela
+            escreva(Concatenacao())
+            escreval()
+            repetir := repeticao()
+         ate repetir = "n"
       caso 3
-         //repita
-         //   limpatela
-         //   escreva ("Digite um número: ")
-        //    leia(numero)
-        //    escreval("O Fatorial de",numero," é:",Fatoracao(numero))
-        //    repetir := repeticao()
-       //  ate repetir = "n"
+         repita
+            limpatela
+            escreva ("Digite um número: ")
+            leia(numero)
+            escreval("O Fatorial de",numero," é:",Fatoracao(numero))
+            repetir := repeticao()
+         ate repetir = "n"
       caso 4
          limpatela
          menujuros
@@ -246,7 +226,30 @@ Inicio
       caso 6
          repita
             limpatela
-            escreval(segundo_grau())
+            repita
+               escreva("Digite o valor de a: ")
+               leia(a)
+               se a=0 entao
+                  escreval("Não é uma Equação de Segundo Grau, Insira outro valor de a:")
+               fimse
+            ate a<>0
+            escreva("Digite o valor de b: ")
+            leia(b)
+            escreva("Digite o valor de c: ")
+            leia(c)
+            delta := calcular_delta()
+            se delta < 0 entao
+               escreva("A equação não possui raízes reais.")
+            senao
+               se delta = 0 entao
+                  x := -b + (RaizQ(delta)) / (2*a)
+                  escreva("A equação possui uma raiz real: ", x)
+               senao
+                  x := (-b + RaizQ(delta)) / (2*a)
+                  y := (-b - RaizQ(delta)) / (2*a)
+                  escreva("As raízes da equação são: ", x, " e ", y)
+               fimse
+            fimse
             escreval("")
             repetir := repeticao()
          ate repetir = "n"
