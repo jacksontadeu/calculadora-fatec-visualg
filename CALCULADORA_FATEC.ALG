@@ -177,7 +177,11 @@ Inicio
             limpatela
             escreva ("Digite um número: ")
             leia(numero)
-            escreval("O Fatorial de",numero," é:",Fatoracao(numero))
+            se numero >12 entao
+               escreval("Tente novamente,o número deve ser igual ou menor que 12")
+            senao
+               escreval("O Fatorial de",numero," é:",Fatoracao(numero))
+            fimse
             repetir := repeticao()
          ate repetir = "n"
       caso 4
