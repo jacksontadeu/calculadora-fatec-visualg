@@ -132,11 +132,32 @@ inicio
    retorne decimal
 fimfuncao
 
+Funcao B10XB2(Num: inteiro) : Caracter
+Var
+   Resultado: Caracter
+Inicio
+   Resultado <- ""
+   Se Num = 0 Então
+      Resultado <- "0"
+   Senao
+      enquanto (Num > 0) faca
+         Se (Num % 2 = 0) Então
+            Resultado <- ("0" + Resultado)
+         Senao
+            Resultado <- ("1" + Resultado)
+         FimSe
+         Num <- (Num div 2)
+      FimEnquanto
+   FimSe
+   Retorne Resultado
+FimFuncao
+
+
 
 Var
    // Seção de Declarações das variáveis
-   opcao, fat,fatorial,incremento, numero, termino : inteiro
-   operacao,repetir,opcaojuros, opcaobase: caracter
+   opcao, fat,fatorial,incremento, numero, termino, num : inteiro
+   operacao,repetir,opcaojuros, opcaobase,resultado1: caracter
    x,y, resultado,juros, c, i, t, j,m,a,b,delta,binario : real
 
 
@@ -252,25 +273,30 @@ Inicio
             escreval("Digite F9 para continuar")
             pausa
          fimescolha
-         
+
       caso 5
          repita
-         limpatela
-         menubase
-         escreva("Digite a opção desejada: ")
-         leia(opcaobase)
-         escolha opcaobase
-         caso "1"
             limpatela
-            escreva("Digite um número de Base 2: ")
-            leia(binario)
-            resultado <- B2XB10(binario)
-            escreval("O número na Base 10 é: ", resultado)
-          caso "2"
-          outrocaso
-           escreval("Opção inválida!!!")
-         fimescolha
-         repetir := repeticao()
+            menubase
+            escreva("Digite a opção desejada: ")
+            leia(opcaobase)
+            escolha opcaobase
+            caso "1"
+               limpatela
+               escreva("Digite um número de Base 2: ")
+               leia(binario)
+               resultado <- B2XB10(binario)
+               escreval("O número na Base 10 é: ", resultado)
+            caso "2"
+               limpatela
+               Escreva("Digite um valor em B10: ")
+               Leia(Num)
+               Resultado1 <- B10XB2(Num)
+               Escreval("O valor ", Num, " em B10 será de: ", Resultado1)
+            outrocaso
+               escreval("Opção inválida!!!")
+            fimescolha
+            repetir := repeticao()
          ate repetir = "n"
       caso 6
          repita
