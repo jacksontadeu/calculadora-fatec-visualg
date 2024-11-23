@@ -153,6 +153,8 @@ Inicio
 FimFuncao
 
 funcao binarioxocta (recebebin : caractere ) : caractere
+var
+armazconversao:caracter
 inicio
    memoriastring <- recebebin
    i <- compr(recebebin)
@@ -207,6 +209,8 @@ inicio
 fimfuncao
 
 funcao octaxbinario(recebeocta : caractere ) : caractere
+var
+ armazconversao:caracter
 inicio
 
    memoriastring <- recebeocta
@@ -258,13 +262,13 @@ inicio
 
       i <- i - 1
    fimenquanto
-
    retorne armazconversao
 fimfuncao
 
 funcao B2XB16(binario: real) : caracter
 var
    decimal, Valor,i,digito:real
+   resultado1:caracter
 inicio
    decimal <- 0
    i <- 0
@@ -319,7 +323,7 @@ fimfuncao
 funcao B16XB2(hexadecimal: caracter) : caracter
 var
    i,verif: inteiro
-   strFracao,memoriaStr: caractere
+   strFracao,memoriaStr,resultado1: caractere
 inicio
    memoriaStr <- hexadecimal
    i <- compr(hexadecimal)
@@ -411,12 +415,12 @@ fimfuncao
 Var
    // Seção de Declarações das variáveis
    opcao, fat,fatorial,incremento, numero, termino, num : inteiro
-   operacao,repetir,opcaojuros, opcaobase,resultado1: caracter
-   recebebin,partestring,memoriastring,armazconversao,resultadostg:caracter
-   x,y, resultado,juros, c, i, t, j,m,a,b,delta,binario : real
+   operacao,repetir,opcaojuros, opcaobase: caracter
+   recebebin,partestring,memoriastring,resultadostg:caracter
+   x,y, juros, c, i, t, j,m,a,b,delta,binario,resultbin : real
    teste:inteiro
-   recebeocta,hexadecimal:caracter
-
+   recebeocta,hexadecimal,resultadoocta:caracter
+   resultadohexa,resultadobinario,resultdec:caracter
 
 Inicio
    // Seção de Comandos, procedimento, funções, operadores, etc...
@@ -541,14 +545,16 @@ Inicio
                limpatela
                escreva("Digite um número de Base 2: ")
                leia(binario)
-               resultado <- B2XB10(binario)
-               escreval("O número na Base 10 é: ", resultado)
+               resultbin <- B2XB10(binario)
+               escreval("O número na Base 10 é: ", resultbin)
+
             caso "2"
                limpatela
                Escreva("Digite um valor em B10: ")
                Leia(Num)
-               Resultado1 <- B10XB2(Num)
-               Escreval("O valor ", Num, " em B10 será de: ", Resultado1)
+               Resultdec <- B10XB2(Num)
+               Escreval("O valor ", Num, " em B10 será de: ", Resultdec)
+
             caso "3"
                limpatela
                escreva("Digite o valor em binario:")
@@ -558,23 +564,25 @@ Inicio
 
             caso "4"
                limpatela
-               escreva("Digite o valor em octadecimal:")
+               escreva("Digite o valor em octadecimal: ")
                leia(recebeocta)
-               resultadostg <- octaxbinario(recebeocta)
-               escreval("O número: ", recebeocta, " é ", resultadostg)
+               resultadoocta <- octaxbinario(recebeocta)
+               escreval("O número: ", recebeocta, " é ", resultadoocta)
 
             caso "5"
                limpatela
                escreva("Digite um número de Base 2: ")
                leia(binario)
-               resultado1 <- B2XB16(binario)
-               escreval("O número na Base 16 é: ", resultado1)
+               resultadohexa <- B2XB16(binario)
+               escreval("O número na Base 16 é: ", resultadohexa)
+
             caso "6"
                limpatela
                escreva("Digite um número de Base 16: ")
                leia(hexadecimal)
-               resultado1 <- B16XB2(hexadecimal)
-               escreval("O número na Base 2 é: ", resultado1)
+               resultadobinario <- B16XB2(hexadecimal)
+               escreval("O número na Base 2 é: ", resultadobinario)
+
             caso "0"
             outrocaso
                escreval("Opção inválida!!!")
