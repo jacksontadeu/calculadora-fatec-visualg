@@ -18,6 +18,20 @@ inicio
    escreval ("Juros")
    escreval("1 - Juros Simples")
    escreval("2 - Juros Compostos")
+   escreval("0 - Voltar ao menu principal")
+fimprocedimento
+
+procedimento menubase
+inicio
+   escreval ("Menu Conversao de Base Numérica")
+   escreval("1 - B2 X B10")
+   escreval("2 - B10 X B2")
+   escreval("3 - B2 X B8")
+   escreval("4 - B8 X B2")
+   escreval("5 - B2 X B16")
+   escreval("6 - B16 X B2")
+   escreval("0 - Voltar ao menu principal")
+
 fimprocedimento
 
 funcao somar(a,b: real): real
@@ -91,12 +105,9 @@ inicio
 fimfuncao
 
 funcao calcular_delta(): real
-
 inicio
-
    delta<- (b*b) - (4*a*c)
    retorne delta
-
 fimfuncao
 
 funcao repeticao(): caracter
@@ -106,12 +117,27 @@ inicio
    retorne repetir
 fimfuncao
 
+funcao B2XB10(binario: real) : real
+var
+   decimal, i, digito: real
+inicio
+   decimal <- 0
+   i <- 0
+   enquanto binario > 0 faca
+      digito <- binario % 10
+      decimal <- decimal + digito * (2 ^ i)
+      binario <- binario / 10
+      i <- i + 1
+   fimenquanto
+   retorne decimal
+fimfuncao
+
 
 Var
    // Seção de Declarações das variáveis
    opcao, fat,fatorial,incremento, numero, termino : inteiro
-   operacao,repetir,opcaojuros: caracter
-   x,y, resultado,juros, c, i, t, j,m,a,b,delta : real
+   operacao,repetir,opcaojuros, opcaobase: caracter
+   x,y, resultado,juros, c, i, t, j,m,a,b,delta,binario : real
 
 
 
@@ -220,13 +246,32 @@ Inicio
                escreval("O montante é: ",m)
                repetir := repeticao()
             ate repetir = "n"
+         caso "0"
          outrocaso
             escreval ("Digite a opção correta, tente novamente!!!")
             escreval("Digite F9 para continuar")
             pausa
          fimescolha
+         
       caso 5
+         repita
          limpatela
+         menubase
+         escreva("Digite a opção desejada: ")
+         leia(opcaobase)
+         escolha opcaobase
+         caso "1"
+            limpatela
+            escreva("Digite um número de Base 2: ")
+            leia(binario)
+            resultado <- B2XB10(binario)
+            escreval("O número na Base 10 é: ", resultado)
+          caso "2"
+          outrocaso
+           escreval("Opção inválida!!!")
+         fimescolha
+         repetir := repeticao()
+         ate repetir = "n"
       caso 6
          repita
             limpatela
@@ -257,6 +302,7 @@ Inicio
             escreval("")
             repetir := repeticao()
          ate repetir = "n"
+         repetir := "s"
       caso 0
          escreva ("Obrigado por utilizar o sistema, saindo do sistema!!!")
          timer (1000)
