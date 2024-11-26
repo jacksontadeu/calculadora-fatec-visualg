@@ -417,7 +417,7 @@ Var
    opcao, fat,fatorial,incremento, numero, termino, num : inteiro
    operacao,repetir,opcaojuros, opcaobase: caracter
    recebebin,partestring,memoriastring,resultadostg:caracter
-   x,y, juros, c, i, t, j,m,a,b,delta,binario,resultbin : real
+   x,y, juros, c, i, t, j,m,a,b,delta,binario,resultbin, result : real
    teste:inteiro
    recebeocta,hexadecimal,resultadoocta:caracter
    resultadohexa,resultadobinario,resultdec:caracter
@@ -436,7 +436,7 @@ Inicio
             operacao <- ""
             escreva("Digite um número: ")
             leia(x)
-            resultado <- x
+            result <- x
             enquanto operacao <> "=" faca
                escreva ("Escolha a operação +,-,*,/ ou = para terminar: ")
                leia(operacao)
@@ -444,30 +444,30 @@ Inicio
                caso "+"
                   escreva("Digite outro número: ")
                   leia(y)
-                  resultado <- somar(resultado,y)
+                  result <- somar(result,y)
                   limpatela
-                  escreval(resultado)
+                  escreval(result)
                caso "-"
                   escreva("Digite outro número: ")
                   leia(y)
-                  resultado <- subtrair(resultado,y)
+                  result <- subtrair(result,y)
                   limpatela
-                  escreval(resultado)
+                  escreval(result)
                caso "*"
                   escreva("Digite outro número: ")
                   leia(y)
-                  resultado <- multiplicar(resultado,y)
+                  result <- multiplicar(result,y)
                   limpatela
-                  escreval(resultado)
+                  escreval(result)
                caso "/"
                   escreva("Digite outro número: ")
                   leia(y)
-                  resultado <- dividir(resultado,y)
+                  result <- dividir(result,y)
                   limpatela
-                  escreval(resultado)
+                  escreval(result)
                caso "="
                   limpatela
-                  escreval("Resultado: ",resultado)
+                  escreval("Resultado: ",result)
                fimescolha
             fimenquanto
             repetir := repeticao()
@@ -502,15 +502,15 @@ Inicio
                LimpaTela
                escreva ("Digite o valor do seu capital inical (c): R$ ")
                leia (c)
-               escreva ("Digite o valor do juros (i) em porcentagem:")
+               escreva ("Digite o valor do juros (i) em porcentagem: ")
                leia(i)
                escreva ("Digite o tempo (t) em meses: ")
                leia(t)
                LimpaTela
                j := CalcularJurosSimples(c, i, t)
-               escreva(c, " * ", i * 100, "% * ", t, " = R$", j:0:2)
+               escreva(c, " * ", i * 100, "% * ", t, " = R$ ", j:2:2)
                escreval
-               escreva("O valor dos juros simples é: R$", j:0:2)
+               escreva("O valor dos juros simples é: R$ ", j:2:2)
                escreval (" ")
                repetir := repeticao()
             ate repetir = "n"
@@ -524,7 +524,7 @@ Inicio
                escreva("Digite o tempo: ")
                leia(t)
                m <- juros_compostos(c,i,t)
-               escreval("O montante é: ",m)
+               escreval("O montante é: ",m:2:2)
                repetir := repeticao()
             ate repetir = "n"
          caso "0"
@@ -557,7 +557,7 @@ Inicio
 
             caso "3"
                limpatela
-               escreva("Digite o valor em binario:")
+               escreva("Digite o valor em binario: ")
                leia(recebebin)
                resultadostg <- binarioxocta(recebebin)
                escreval("O número: ", recebebin, " é ", resultadostg," na Base 8")
@@ -609,11 +609,11 @@ Inicio
             senao
                se delta = 0 entao
                   x := -b + (RaizQ(delta)) / (2*a)
-                  escreva("A equação possui uma raiz real: ", x)
+                  escreva("A equação possui uma raiz real: ", x:2:2)
                senao
                   x := (-b + RaizQ(delta)) / (2*a)
                   y := (-b - RaizQ(delta)) / (2*a)
-                  escreva("As raízes da equação são: ", x, " e ", y)
+                  escreva("As raízes da equação são: ", x:2:2, " e ", y:2:2)
                fimse
             fimse
             escreval("")
